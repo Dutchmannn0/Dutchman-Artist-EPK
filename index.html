@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dutchman — EPK</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 60px 40px;
+    border-bottom: 1px solid #222;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  /* EPK PAGES */
+  .epk-image {
+    width: 100%;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* MUSIC VIDEOS */
+  .videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .video-block h3 {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+
+  .video-desc {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* BEST TRACKS */
+  .tracks-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .album-cover {
+    width: 100%;
+    display: block;
+  }
+
+  .album-info h2 {
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin-bottom: 6px;
+  }
+
+  .album-info .album-sub {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+
+  .track-list {
+    list-style: none;
+  }
+
+  .track-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1a1a;
+    font-size: 13px;
+    color: #ccc;
+    letter-spacing: 1px;
+  }
+
+  .track-list li:last-child { border-bottom: none; }
+
+  .track-num {
+    color: #444;
+    font-size: 11px;
+    min-width: 20px;
+  }
+
+  .track-name { flex: 1; }
+
+  .track-list a {
+    color: #ccc;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .track-list a:hover .track-name { color: #fff; }
+
+  /* STREAMING */
+  .streaming-row {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .stream-link {
+    display: block;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .stream-link:hover { opacity: 1; }
+
+  .stream-link img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* SOCIALS */
+  .socials-row {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .social-link:hover { opacity: 1; }
+
+  .social-link img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .social-link span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #555;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 700px) {
+    section { padding: 40px 20px; }
+    .videos-grid { grid-template-columns: 1fr; }
+    .tracks-layout { grid-template-columns: 1fr; }
+    .tracks-layout .album-cover { max-width: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- EPK PAGE 1 — ARTIST -->
+<div style="max-width:1200px;margin:0 auto;">
+  <img src="EPK_1.png" class="epk-image" alt="Dutchman Artist EPK">
+  <img src="EPK_2.png" class="epk-image" alt="Dutchman Music Videos EPK">
+  <img src="EPK_3.png" class="epk-image" alt="N.O.W Album EPK">
+</div>
+
+<!-- MUSIC VIDEOS -->
+<section id="videos">
+  <p class="section-label">Selected Music Videos</p>
+  <div class="videos-grid">
+    <div class="video-block">
+      <h3>1097</h3>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/3ak7U2ccQQ0" allowfullscreen></iframe>
+      </div>
+      <p class="video-desc">1097 is a track off the album "N.O.W", depicting numerous places in Amsterdam where Dutchman grew up. A central theme of the song as a whole.</p>
+    </div>
+    <div class="video-block">
+      <h3>Tell Me Now</h3>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/2VbjaH5vH2A" allowfullscreen></iframe>
+      </div>
+      <p class="video-desc">"Tell Me Now" is a jazz-rap track off the album "N.O.W". The video is much more liminal, limited to only a few spaces, meant to reflect the theme of loneliness that is touched on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEST TRACKS -->
+<section id="tracks">
+  <p class="section-label">Best Tracks</p>
+  <div class="tracks-layout">
+    <div>
+      <img src="N_O_W_album_cover.png" class="album-cover" alt="N.O.W Album Cover">
+    </div>
+    <div class="album-info">
+      <h2>N.O.W</h2>
+      <p class="album-sub">Dutchman — 2026 — Debut Album</p>
+      <ul class="track-list">
+        <li><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><span class="track-num">01</span><span class="track-name">Prologue</span></a></li>
+        <li><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><span class="track-num">02</span><span class="track-name">1097</span></a></li>
+        <li><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><span class="track-num">04</span><span class="track-name">Tell Me Now</span></a></li>
+        <li><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><span class="track-num">08</span><span class="track-name">N.O.W</span></a></li>
+        <li><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><span class="track-num">09</span><span class="track-name">Psychomania</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STREAMING -->
+<section id="streaming">
+  <p class="section-label">Stream N.O.W</p>
+  <div class="streaming-row">
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="stream-link" title="SoundCloud">
+      <img src="soundcloud_icon.png" alt="SoundCloud">
+    </a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="stream-link" title="Spotify">
+      <img src="spotify_icon.png" alt="Spotify">
+    </a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="stream-link" title="Apple Music">
+      <img src="apple_music_icon.png" alt="Apple Music">
+    </a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="stream-link" title="YouTube">
+      <img src="yt_icon.png" alt="YouTube Music">
+    </a>
+  </div>
+</section>
+
+<!-- SOCIALS -->
+<section id="socials">
+  <p class="section-label">Socials & Platforms</p>
+  <div class="socials-row">
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-link">
+      <img src="yt_icon.png" alt="YouTube">
+      <span>YouTube</span>
+    </a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-link">
+      <img src="instagram_icon.png" alt="Instagram">
+      <span>Instagram</span>
+    </a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-link">
+      <img src="twitter_icon.jpg" alt="Twitter">
+      <span>Twitter</span>
+    </a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="social-link">
+      <img src="soundcloud_icon.png" alt="SoundCloud">
+      <span>SoundCloud</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  DUTCHMAN &mdash; dutchmannn0@gmail.com &mdash; Amsterdam &mdash; 2026
+</footer>
+
+</body>
+</html>
