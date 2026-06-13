@@ -8,7 +8,6 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #000; color: #fff; font-family: 'Courier New', Courier, monospace; }
 
-  /* Each EPK block is a positioned container */
   .epk-block {
     position: relative;
     width: 100%;
@@ -21,7 +20,6 @@
     display: block;
   }
 
-  /* Overlay layer sits on top of the image */
   .epk-overlay {
     position: absolute;
     top: 0; left: 0;
@@ -29,11 +27,79 @@
     pointer-events: none;
   }
 
-  /* Any interactive element inside overlay needs pointer-events back */
   .epk-overlay * { pointer-events: auto; }
 
-  /* VIDEO EMBEDS — EPK_2 */
-  /* Two video slots side by side in the big black space */
+  /* ── PAGE 1: BEST TRACKS ── */
+  #best-tracks {
+    position: absolute;
+    top: 13%;
+    left: 72%;
+    width: 26%;
+    height: 47%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 1%;
+  }
+
+  .track-item {
+    display: flex;
+    align-items: center;
+    gap: 6%;
+    text-decoration: none;
+  }
+
+  .track-item img {
+    width: 22%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .track-item span {
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: clamp(7px, 1.1vw, 15px);
+    letter-spacing: 1px;
+  }
+
+  .track-item:hover span { opacity: 0.7; }
+
+  /* ── PAGE 1: SOCIALS GRID 2x3 ── */
+  #socials-grid {
+    position: absolute;
+    top: 63%;
+    left: 70%;
+    width: 29%;
+    height: 33%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 4% 6%;
+    align-items: center;
+    justify-items: center;
+    padding: 2% 1%;
+  }
+
+  .social-btn {
+    display: block;
+    width: 70%;
+    aspect-ratio: 1;
+    transition: opacity 0.2s;
+  }
+
+  .social-btn:hover { opacity: 0.7; }
+
+  .social-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* ── PAGE 2: VIDEOS (DO NOT TOUCH) ── */
   .video-slot {
     position: absolute;
     overflow: hidden;
@@ -47,8 +113,6 @@
     display: block;
   }
 
-  /* EPK_2: left video — 1097 */
-  /* Black area starts roughly 19% from top, ends ~68%, left half */
   #vid-1097 {
     top: 19%;
     left: 1%;
@@ -56,7 +120,6 @@
     height: 49%;
   }
 
-  /* EPK_2: right video — Tell Me Now */
   #vid-tmn {
     top: 19%;
     left: 50%;
@@ -64,27 +127,24 @@
     height: 49%;
   }
 
-  /* STREAMING ICONS — EPK_3 */
-  /* Streaming links column: left ~0-27%, below the heading */
-  .streaming-slot {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 4%;
-    align-items: center;
-    justify-content: center;
-  }
-
+  /* ── PAGE 3: STREAMING ICONS horizontal ── */
   #streaming-icons {
-    top: 40%;
+    position: absolute;
+    top: 42%;
     left: 1%;
     width: 26%;
-    height: 52%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
   }
 
   .stream-icon-link {
     display: block;
-    width: 22%;
+    width: 20%;
     transition: opacity 0.2s;
   }
 
@@ -94,18 +154,18 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: 6px;
   }
 
-  /* EPK_3: 1097 video embed — under "1097 MUSIC VIDEO" heading, middle column */
+  /* ── PAGE 3: 1097 VIDEO ── */
   #vid-1097-epk3 {
-    top: 43%;
+    top: 47%;
     left: 27%;
-    width: 55%;
-    height: 42%;
+    width: 50%;
+    height: 36%;
   }
 
-  /* FOOTER */
+  /* ── FOOTER ── */
   footer {
     text-align: center;
     padding: 40px;
@@ -115,57 +175,21 @@
     border-top: 1px solid #111;
   }
 
-  /* MOBILE: on small screens the overlay % positions still work
-     since they're relative to the image which scales with width.
-     But videos get too small under ~500px so we stack them below instead */
+  /* ── MOBILE ── */
   @media (max-width: 600px) {
-    #vid-1097, #vid-tmn, #vid-1097-epk3, #streaming-icons {
+    #vid-1097, #vid-tmn, #vid-1097-epk3, #streaming-icons, #best-tracks, #socials-grid {
       display: none;
     }
-
-    .mobile-fallback {
-      display: block;
-      background: #000;
-      padding: 24px 16px;
-      border-top: 1px solid #111;
-    }
-
-    .mobile-fallback h3 {
-      font-size: 10px;
-      letter-spacing: 3px;
-      color: #555;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .mobile-video-wrap {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      margin-bottom: 24px;
-    }
-
-    .mobile-video-wrap iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-
-    .mobile-stream-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .mobile-stream-row a img {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
+    .mobile-fallback { display: block; background: #000; padding: 24px 16px; border-top: 1px solid #111; }
+    .mobile-fallback h3 { font-size: 10px; letter-spacing: 3px; color: #555; text-transform: uppercase; margin-bottom: 12px; }
+    .mobile-video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin-bottom: 24px; }
+    .mobile-video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .mobile-icon-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; margin-bottom: 24px; }
+    .mobile-icon-row a img { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; }
+    .mobile-track-list { list-style: none; }
+    .mobile-track-list li { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid #111; }
+    .mobile-track-list li img { width: 36px; height: 36px; object-fit: cover; }
+    .mobile-track-list li a { color: #ccc; text-decoration: none; font-size: 13px; }
   }
 
   @media (min-width: 601px) {
@@ -175,12 +199,76 @@
 </head>
 <body>
 
-<!-- EPK PAGE 1 — ARTIST (no overlays needed) -->
+<!-- EPK PAGE 1 — ARTIST -->
 <div class="epk-block">
   <img src="EPK_1.png" class="epk-bg" alt="Dutchman Artist EPK">
+  <div class="epk-overlay">
+
+    <div id="best-tracks">
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
+        <img src="N_O_W_album_cover.png" alt="N.O.W">
+        <span>N.O.W</span>
+      </a>
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
+        <img src="N_O_W_album_cover.png" alt="Tell Me Now">
+        <span>Tell Me Now</span>
+      </a>
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
+        <img src="N_O_W_album_cover.png" alt="1097">
+        <span>1097</span>
+      </a>
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
+        <img src="N_O_W_album_cover.png" alt="Prologue">
+        <span>Prologue</span>
+      </a>
+    </div>
+
+    <div id="socials-grid">
+      <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="YouTube">
+        <img src="yt_icon.png" alt="YouTube">
+      </a>
+      <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="Instagram">
+        <img src="instagram_icon.png" alt="Instagram">
+      </a>
+      <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="Twitter">
+        <img src="twitter_icon.jpg" alt="Twitter">
+      </a>
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="social-btn" title="SoundCloud">
+        <img src="soundcloud_icon.png" alt="SoundCloud">
+      </a>
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="social-btn" title="Spotify">
+        <img src="spotify_icon.png" alt="Spotify">
+      </a>
+      <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="social-btn" title="Apple Music">
+        <img src="apple_music_icon.png" alt="Apple Music">
+      </a>
+    </div>
+
+  </div>
 </div>
 
-<!-- EPK PAGE 2 — MUSIC VIDEOS -->
+<!-- Mobile fallback page 1 -->
+<div class="mobile-fallback">
+  <h3>Best Tracks</h3>
+  <ul class="mobile-track-list">
+    <li><img src="N_O_W_album_cover.png" alt=""><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank">N.O.W</a></li>
+    <li><img src="N_O_W_album_cover.png" alt=""><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank">Tell Me Now</a></li>
+    <li><img src="N_O_W_album_cover.png" alt=""><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank">1097</a></li>
+    <li><img src="N_O_W_album_cover.png" alt=""><a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank">Prologue</a></li>
+  </ul>
+  <br>
+  <h3>Socials & Platforms</h3>
+  <div class="mobile-icon-row">
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="yt_icon.png" alt="YouTube"></a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="twitter_icon.jpg" alt="Twitter"></a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="soundcloud_icon.png" alt="SoundCloud"></a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="spotify_icon.png" alt="Spotify"></a>
+    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="apple_music_icon.png" alt="Apple Music"></a>
+  </div>
+</div>
+
+<!-- EPK PAGE 2 — MUSIC VIDEOS (untouched) -->
 <div class="epk-block">
   <img src="EPK_2.png" class="epk-bg" alt="Dutchman Music Videos EPK">
   <div class="epk-overlay">
@@ -193,7 +281,7 @@
   </div>
 </div>
 
-<!-- Mobile fallback for EPK_2 videos -->
+<!-- Mobile fallback page 2 -->
 <div class="mobile-fallback">
   <h3>1097</h3>
   <div class="mobile-video-wrap">
@@ -210,8 +298,7 @@
   <img src="EPK_3.png" class="epk-bg" alt="N.O.W Album EPK">
   <div class="epk-overlay">
 
-    <!-- Streaming icons in left column -->
-    <div class="streaming-slot" id="streaming-icons">
+    <div id="streaming-icons">
       <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="stream-icon-link" title="SoundCloud">
         <img src="soundcloud_icon.png" alt="SoundCloud">
       </a>
@@ -226,7 +313,6 @@
       </a>
     </div>
 
-    <!-- 1097 video in the middle empty slot -->
     <div class="video-slot" id="vid-1097-epk3">
       <iframe src="https://www.youtube.com/embed/3ak7U2ccQQ0" allowfullscreen></iframe>
     </div>
@@ -234,25 +320,22 @@
   </div>
 </div>
 
-<!-- Mobile fallback for EPK_3 -->
+<!-- Mobile fallback page 3 -->
 <div class="mobile-fallback">
   <h3>Stream N.O.W</h3>
-  <div class="mobile-stream-row">
+  <div class="mobile-icon-row">
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="soundcloud_icon.png" alt="SoundCloud"></a>
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="spotify_icon.png" alt="Spotify"></a>
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="apple_music_icon.png" alt="Apple Music"></a>
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="yt_icon.png" alt="YouTube Music"></a>
   </div>
-  <br>
   <h3>1097 — Music Video</h3>
   <div class="mobile-video-wrap">
     <iframe src="https://www.youtube.com/embed/3ak7U2ccQQ0" allowfullscreen></iframe>
   </div>
 </div>
 
-<footer>
-  DUTCHMAN &mdash; dutchmannn0@gmail.com &mdash; Amsterdam &mdash; 2026
-</footer>
+<footer>DUTCHMAN &mdash; dutchmannn0@gmail.com &mdash; Amsterdam &mdash; 2026</footer>
 
 </body>
 </html>
