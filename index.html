@@ -54,42 +54,46 @@
   .track-item:hover span { opacity: 0.7; }
 
   /* ── PAGE 1: SOCIALS GRID 2x3
-     Socials heading ends at ~83% down.
-     Icons zone: 84%-98% down, same right column.
-     Only 14% height available — keep icons compact.
+     Socials heading ends at ~83% down, icons fill 83%-100%.
+     Icon size is set in vw so it stays proportional to the page width.
   ── */
   #socials-grid {
     position: absolute;
-    top: 81%;
+    top: 83%;
     left: 67%;
     width: 32%;
-    height: 18%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 2% 3%;
-    align-items: center;
-    justify-items: center;
-    padding: 0.5% 2%;
-    overflow: visible;
+    height: 17%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    row-gap: 1vw;
   }
 
   .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    aspect-ratio: 1;
+    width: 4.2vw;
+    height: 4.2vw;
+    flex-shrink: 0;
     transition: opacity 0.2s;
   }
 
   .social-btn:hover { opacity: 0.7; }
 
   .social-btn img {
-    width: 75%;
-    height: 75%;
+    width: 85%;
+    height: 85%;
     object-fit: contain;
     display: block;
+  }
+
+  /* Twitter's logo fills its source image edge-to-edge, so it reads
+     larger than the others at the same box size — scale it down to match. */
+  .social-btn.icon-compact img {
+    width: 62%;
+    height: 62%;
   }
 
   /* ── PAGE 2: VIDEOS (UNTOUCHED) ── */
@@ -119,10 +123,10 @@
   /* ── PAGE 3: VIDEO ── */
   #vid-1097-epk3 {
     position: absolute;
-    top: 40%;
-    left: 30%;
-    width: 38%;
-    height: 34%;
+    top: 54%;
+    left: 40%;
+    width: 35%;
+    height: 35%;
     overflow: hidden;
     background: #000;
   }
@@ -181,7 +185,7 @@
       <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="Instagram">
         <img src="instagram_icon.png" alt="Instagram">
       </a>
-      <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="Twitter">
+      <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn icon-compact" title="Twitter">
         <img src="twitter_icon.png" alt="Twitter">
       </a>
       <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="SoundCloud">
@@ -212,9 +216,9 @@
     <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="yt_icon.png" alt="YouTube"></a>
     <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
     <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="twitter_icon.png" alt="Twitter"></a>
-    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="soundcloud_icon.png" alt="SoundCloud"></a>
-    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="spotify_icon.png" alt="Spotify"></a>
-    <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="apple_music_icon.png" alt="Apple Music"></a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="soundcloud_icon.png" alt="SoundCloud"></a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="spotify_icon.png" alt="Spotify"></a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="apple_music_icon.png" alt="Apple Music"></a>
   </div>
 </div>
 
