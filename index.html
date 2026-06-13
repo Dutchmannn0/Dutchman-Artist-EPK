@@ -8,25 +8,9 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { background: #000; color: #fff; font-family: 'Courier New', Courier, monospace; }
 
-  .epk-block {
-    position: relative;
-    width: 100%;
-    display: block;
-  }
-
-  .epk-block img.epk-bg {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .epk-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-  }
-
+  .epk-block { position: relative; width: 100%; display: block; }
+  .epk-block img.epk-bg { width: 100%; height: auto; display: block; }
+  .epk-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
   .epk-overlay * { pointer-events: auto; }
 
   /* ── PAGE 1: BEST TRACKS ── */
@@ -67,24 +51,26 @@
   .track-item:hover span { opacity: 0.7; }
 
   /* ── PAGE 1: SOCIALS GRID 2x3 ── */
+  /* Sits below "SOCIALS&PLATFORMS" heading, roughly 72%-96% vertically, right column */
   #socials-grid {
     position: absolute;
-    top: 68%;
-    left: 71%;
-    width: 27%;
-    height: 28%;
+    top: 72%;
+    left: 72%;
+    width: 26%;
+    height: 24%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    gap: 3% 5%;
+    gap: 4% 4%;
     align-items: center;
     justify-items: center;
-    padding: 1%;
   }
 
   .social-btn {
-    display: block;
-    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     aspect-ratio: 1;
     transition: opacity 0.2s;
   }
@@ -92,40 +78,19 @@
   .social-btn:hover { opacity: 0.7; }
 
   .social-btn img {
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
     object-fit: contain;
     border-radius: 8px;
     display: block;
   }
 
   /* ── PAGE 2: VIDEOS (UNTOUCHED) ── */
-  .video-slot {
-    position: absolute;
-    overflow: hidden;
-    background: #000;
-  }
+  .video-slot { position: absolute; overflow: hidden; background: #000; }
+  .video-slot iframe { width: 100%; height: 100%; border: none; display: block; }
 
-  .video-slot iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
-
-  #vid-1097 {
-    top: 19%;
-    left: 1%;
-    width: 47%;
-    height: 49%;
-  }
-
-  #vid-tmn {
-    top: 19%;
-    left: 50%;
-    width: 49%;
-    height: 49%;
-  }
+  #vid-1097  { top: 19%; left:  1%; width: 47%; height: 49%; }
+  #vid-tmn   { top: 19%; left: 50%; width: 49%; height: 49%; }
 
   /* ── PAGE 3: STREAMING ICONS ── */
   #streaming-icons {
@@ -141,39 +106,20 @@
     gap: 6%;
   }
 
-  .stream-icon-link {
-    display: block;
-    width: 18%;
-    transition: opacity 0.2s;
-    flex-shrink: 0;
-  }
-
+  .stream-icon-link { display: block; width: 18%; flex-shrink: 0; transition: opacity 0.2s; }
   .stream-icon-link:hover { opacity: 0.7; }
+  .stream-icon-link img { width: 100%; height: auto; display: block; border-radius: 6px; }
 
-  .stream-icon-link img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
-  }
-
-  /* ── PAGE 3: VIDEO ── */
+  /* ── PAGE 3: VIDEO — smaller and shifted right to clear album cover ── */
   #vid-1097-epk3 {
-    top: 44%;
-    left: 28%;
-    width: 43%;
-    height: 38%;
+    top: 40%;
+    left: 30%;
+    width: 38%;
+    height: 34%;
   }
 
   /* ── FOOTER ── */
-  footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 11px;
-    color: #333;
-    letter-spacing: 2px;
-    border-top: 1px solid #111;
-  }
+  footer { text-align: center; padding: 40px; font-size: 11px; color: #333; letter-spacing: 2px; border-top: 1px solid #111; }
 
   /* ── MOBILE ── */
   @media (max-width: 600px) {
@@ -195,27 +141,23 @@
 </head>
 <body>
 
-<!-- EPK PAGE 1 — ARTIST -->
+<!-- EPK PAGE 1 -->
 <div class="epk-block">
   <img src="EPK_1.png" class="epk-bg" alt="Dutchman Artist EPK">
   <div class="epk-overlay">
 
     <div id="best-tracks">
       <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
-        <img src="N_O_W_album_cover.png" alt="N.O.W">
-        <span>N.O.W</span>
+        <img src="N_O_W_album_cover.png" alt="N.O.W"><span>N.O.W</span>
       </a>
       <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
-        <img src="N_O_W_album_cover.png" alt="Tell Me Now">
-        <span>Tell Me Now</span>
+        <img src="N_O_W_album_cover.png" alt="Tell Me Now"><span>Tell Me Now</span>
       </a>
       <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
-        <img src="N_O_W_album_cover.png" alt="1097">
-        <span>1097</span>
+        <img src="N_O_W_album_cover.png" alt="1097"><span>1097</span>
       </a>
       <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="track-item">
-        <img src="N_O_W_album_cover.png" alt="Prologue">
-        <span>Prologue</span>
+        <img src="N_O_W_album_cover.png" alt="Prologue"><span>Prologue</span>
       </a>
     </div>
 
@@ -227,7 +169,7 @@
         <img src="instagram_icon.png" alt="Instagram">
       </a>
       <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank" class="social-btn" title="Twitter">
-        <img src="twitter_icon.jpg" alt="Twitter">
+        <img src="twitter_icon.png" alt="Twitter">
       </a>
       <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank" class="social-btn" title="SoundCloud">
         <img src="soundcloud_icon.png" alt="SoundCloud">
@@ -257,14 +199,14 @@
   <div class="mobile-icon-row">
     <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="yt_icon.png" alt="YouTube"></a>
     <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="instagram_icon.png" alt="Instagram"></a>
-    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="twitter_icon.jpg" alt="Twitter"></a>
+    <a href="https://www.youtube.com/@Dutchman-ww2sn" target="_blank"><img src="twitter_icon.png" alt="Twitter"></a>
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="soundcloud_icon.png" alt="SoundCloud"></a>
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="spotify_icon.png" alt="Spotify"></a>
     <a href="https://on.soundcloud.com/T5LeWiN3KWZhz3LzFU" target="_blank"><img src="apple_music_icon.png" alt="Apple Music"></a>
   </div>
 </div>
 
-<!-- EPK PAGE 2 — MUSIC VIDEOS (UNTOUCHED) -->
+<!-- EPK PAGE 2 — UNTOUCHED -->
 <div class="epk-block">
   <img src="EPK_2.png" class="epk-bg" alt="Dutchman Music Videos EPK">
   <div class="epk-overlay">
@@ -289,7 +231,7 @@
   </div>
 </div>
 
-<!-- EPK PAGE 3 — ALBUM BREAKDOWN -->
+<!-- EPK PAGE 3 -->
 <div class="epk-block">
   <img src="EPK_3.png" class="epk-bg" alt="N.O.W Album EPK">
   <div class="epk-overlay">
